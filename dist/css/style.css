@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  src: url("../fonts/Roboto-Regular.woff") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  src: url("../fonts/Roboto-Bold.woff") format("truetype");
   font-style: normal;
   font-weight: bold;
 }
@@ -73,4 +73,8 @@
 .form-wrapper {
   display: flex;
   justify-content: center;
+}
+
+.wrong {
+  border: 2px solid red;
 }

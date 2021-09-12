@@ -2,14 +2,14 @@
     // название шрифта(чтобы не запутаться лучше указать название папки со шрифтом) 
     font-family: "Roboto"; 
     // адрес шрифта и тип 
-    src: url("../fonts/Roboto-Regular.ttf") format("truetype"); 
+    src: url("../fonts/Roboto-Regular.woff") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Roboto"; 
-    src: url("../fonts/Roboto-Bold.ttf") format("truetype"); 
+    src: url("../fonts/Roboto-Bold.woff") format("truetype"); 
     font-style: normal; 
     font-weight: bold; 
 } 
