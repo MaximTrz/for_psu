@@ -14,12 +14,17 @@
     }
 }
 
+*, ::after, ::before {
+    box-sizing: border-box;
+}
 
 .form-wrapper{
     display: flex;
     justify-content: center;
+    padding-top: 31px;
+    
 }
 
 .wrong{
-    border: 2px solid red;
+    border: 1px dotted red;
 }

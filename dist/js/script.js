@@ -3,10 +3,10 @@ const formQuestion=document.querySelector('.form-question');
 formQuestion.addEventListener('submit', async (e)=>{
     e.preventDefault();
 
-    validateForm(formQuestion);
-
-    return;
-
+    if(!validateForm(formQuestion)){
+        return;
+    }
+    
     let response = await fetch('https://60376bfd5435040017722533.mockapi.io/form', {
         method: 'POST',
         body: new FormData(formQuestion)
@@ -24,10 +24,15 @@ formQuestion.addEventListener('submit', async (e)=>{
 
 const validateForm = (form)=>{
     const inputs = form.querySelectorAll('.validate'),
-          fio = /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/,
-          phone = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+    regs = {
+        fio : /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]{1,}|[А-ЯA-Z][\x27а-яa-z]{1,}\-([А-ЯA-Z][\x27а-яa-z]{1,}|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]{1,}(\040[А-ЯA-Z][\x27а-яa-z]{1,})?$/,
+        phone : /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
+        email : /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    };
 
-    const test = (value, reg)=>{
+    let result = true;
+
+    const checkInput = (value, reg)=>{
         const regExp = reg;
         return regExp.test(value)
     }
@@ -35,13 +40,23 @@ const validateForm = (form)=>{
     inputs.forEach(element => {
         element.addEventListener('focus', ()=>element.classList.remove('wrong'));
         
-        const val = element.value;
+        const val = element.value,
+              validationType = element.getAttribute('data-validation_type');
+
         if (!val){
             element.classList.add('wrong');
+            result = false;
         } else {
+            const res = checkInput(val, regs[validationType]);
             
-            console.log(test(val, phone));
+            if(!res){               
+                element.classList.add('wrong');
+                result = false;
+            }
+        }
 
-        } 
     });
+
+    return result;
+
 }
