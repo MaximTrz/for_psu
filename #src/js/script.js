@@ -7,7 +7,9 @@ formQuestion.addEventListener('submit', async (e)=>{
         return;
     }
     
-    let response = await fetch('https://60376bfd5435040017722533.mockapi.io/form', {
+    const serverUrl = formQuestion.getAttribute('action');    
+
+    let response = await fetch(serverUrl, {
         method: 'POST',
         body: new FormData(formQuestion)
       });
