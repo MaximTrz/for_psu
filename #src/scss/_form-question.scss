@@ -1,11 +1,17 @@
 .form-question{
     width: 481px;
     background: #F7F5F9;
+    border: 2px solid #F7F5F9;
     border-radius: 12px;
     padding: 40px;
-    padding-top: 35px;
+    padding-top: 33px;
     font-family: Roboto;
     filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.25));
+    &:hover {        
+        border: 2px solid #18a0fb;
+        box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+        border-radius: 6px;
+    }  
 }
 
 .form-question__title{
@@ -17,17 +23,17 @@
 }
 
 .form-question__input{
-    padding: 14px 15px;
+    padding: 14px 11px;    
     background: #FFFFFF;
     box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);    
     border-radius: 6px;
     width: 100%;
     border: none;    
     font-size: 15px;   
-    margin-bottom: 27px;
+    margin-bottom: 24px;
     color: #999;
     outline: none; 
-    border: 1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
 
     &:-webkit-autofill {
         -webkit-box-shadow: inset 0 0 0 50px #fff !important;
@@ -38,12 +44,12 @@
     &::-webkit-input-placeholder { color:  #D0C9D6; }
     &::-moz-placeholder { color:  #D0C9D6; };
     &:focus{
-        border: 1px solid #854FC8;
+        border: 2px solid #c1a6e2;
         box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
         border-radius: 6px;
     }
     &:hover {        
-        border: 1px solid #854FC8;
+        border: 2px solid #7b61ff;
         box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
         border-radius: 6px;
     }            
@@ -51,12 +57,10 @@
 
 .form-question__submit{
     background: #6979F8;
-    margin-top: -1px;
-    border-radius: 6px;
-    border: none;
+    border-radius: 6px;    
     width: 100%;
     padding-top:13px;
-    padding-bottom: 13px;
+    padding-bottom: 12px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 300;
@@ -64,4 +68,11 @@
     text-transform: uppercase;
     color: #FFFFFF;
     cursor: pointer;
+    border: 2px solid #6979F8;
+    margin-bottom: -1px;
+    &:hover {        
+        border: 2px solid #7b61ff;
+        box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+        border-radius: 6px;
+    }    
 }
