@@ -49,11 +49,12 @@ const validateForm = (form)=>{
             element.classList.add('wrong');
             result = false;
         } else {
-            const res = checkInput(val, regs[validationType]);
-            
-            if(!res){               
-                element.classList.add('wrong');
-                result = false;
+            if (regs[validationType]){
+                const res = checkInput(val, regs[validationType]);                
+                if(!res){               
+                    element.classList.add('wrong');
+                    result = false;
+                }
             }
         }
 
